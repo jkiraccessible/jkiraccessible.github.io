@@ -1,4 +1,4 @@
-<!-- JW HTML portion of program -->
+<!-- HTML portion of program -->
 
 <!doctype html>
 <html lang = "en">
@@ -6,93 +6,41 @@
 <head>
 
     <meta charset = "UTF-8">
-    <meta name = "viewport"> 
+    <meta name = "viewport">
     <meta content = "width=device-width, user-scalable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0">
-    <meta http-equiv = "X-UA-Compatible"> 
+    <meta http-equiv = "X-UA-Compatible">
     <meta content = "ie=edge">
 
     <title>Tic Tac Toe Board Game</title>
 
     <link rel = "stylesheet" href = "tic_tac_toe.css">
 
-    <style>
-
-        body
-        {
-            font-family: "Arial" sans-serif;
-            background-color: powderblue;
-        }
-
-        button
-        {
-            padding: 10px;
-            background-color: #ff0000;
-            color: #FFFFFF;
-            border: 0px;
-            cursor:pointer;
-            border-radius: 5px;
-        }
-
-        section
-        {
-            text-align: center;
-        }
-
-        .game--container
-        {
-            display: grid;
-            grid-template-columns: repeat(3, auto);
-            width: 306px;
-            margin: 50px auto;
-        }
-
-        .cell
-        {
-            font-family: "Arial" sans-serif;
-            width: 100px;
-            height: 100px;
-            box-shadow: 0 0 0 1px #333333;
-            border: 1px solid #333333;
-            cursor: pointer;
-            line-height: 100px;
-            font-size: 60px;
-        }
-
-    </style>
-
 </head>
 
 <body>
-
-    <p>Instructions: Choose ONE of the following boxes on how to play tic tac toe!</p>
-
-    <label class = "container"> Voice Command<input type = "checkbox" id = "cena" name = "myCheckbox" value = "1" onchange = "myfunction()" 
-        onclick = "selectOnlyThis(this)"/></label>
-    <p1>Voice command allows you to play tic tac toe using the following commands: </p1>
-
-    <label class = "container"> Mouse to Play<input type = "checkbox" id = "cena" name = "myCheckbox" value = "2" onchange = "myfunction()" 
-        onclick = "selectOnlyThis(this)"/></label>
-    <p2>Click to Play allows you to use your mouse to play this game</p2>
 
     <section>
 
         <h1 class = "game--title">Tic Tac Toe!</h1>
 
         <div class = "game--container">
-            <div data-cell-index = "0" class = "cell"></div>
-            <div data-cell-index = "1" class = "cell"></div>
-            <div data-cell-index = "2" class = "cell"></div>
-            <div data-cell-index = "3" class = "cell"></div>
-            <div data-cell-index = "4" class = "cell"></div>
-            <div data-cell-index = "5" class = "cell"></div>
-            <div data-cell-index = "6" class = "cell"></div>
-            <div data-cell-index = "7" class = "cell"></div>
-            <div data-cell-index = "8" class = "cell"></div>
+            <div data-cell-index = "0" class = "cell" id = "1">1</div>
+            <div data-cell-index = "1" class = "cell" id = "2">2</div>
+            <div data-cell-index = "2" class = "cell" id = "3">3</div>
+            <div data-cell-index = "3" class = "cell" id = "4">4</div>
+            <div data-cell-index = "4" class = "cell" id = "5">5</div>
+            <div data-cell-index = "5" class = "cell" id = "6">6</div>
+            <div data-cell-index = "6" class = "cell" id = "7">7</div>
+            <div data-cell-index = "7" class = "cell" id = "8">8</div>
+            <div data-cell-index = "8" class = "cell" id = "9">9</div>
         </div>
 
         <h2 class = "game--status"></h2>
 
-        <button class = "game--restart">Restart Game</button>
+        <button id = "resetButton" class = "game--restart" onclick = "handleRestartGame()">Click to reset</button>
+          <button id = "readBoard" class = "game--readBoard" onclick = "readBoard()">Read the Board</button>
+        <button id = "record" onclick = "speechRecognition()">Voice Recognition</button> &nbsp; <span id = "action"></span>
+        <div id = "output" class = "hide"></div>
 
     </section>
 
