@@ -149,11 +149,11 @@ function readBoard(event){
       if (gameState[i] == "")
       {
         var x = (i+1).toString();
-        msgTxt += "  ";
+        msgTxt += "   ";
         msgTxt += x;
       }
       else {
-        msgTxt += "  ";
+        msgTxt += "   ";
         msgTxt += gameState[i];
       }
     }
@@ -196,7 +196,9 @@ function speechRecognition()
         output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
         output.classList.remove("hide");
         console.log(transcript);
-
+        if (transcript.toLowerCase() == 'read'){
+          readBoard();
+        }
         //locate box 1 on the map and place the current player symbol in it
         if (transcript.toLowerCase() == '1')
         {
