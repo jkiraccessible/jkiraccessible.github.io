@@ -160,6 +160,7 @@ function handleRestartGame()
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
 
 //-------------------------------------------------------------------------------------------------------------------------
 
