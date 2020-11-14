@@ -126,6 +126,27 @@ function handleCellClick(event)
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
+//function to read the state of the cells
+function readBoard(event){
+  var msg = new SpeechSynthesisUtterance();
+  var msgTxt = "";
+    for (var i = 0; i< 9; i++){
+
+      if (gameState[i] == "")
+      {
+        var x = (i+1).toString();
+        msgTxt += "   ";
+        msgTxt += x;
+      }
+      else {
+        msgTxt += "   ";
+        msgTxt += gameState[i];
+      }
+    }
+    msg.text = msgTxt;
+    speechSynthesis.speak(msg);
+}
+//-------------------------------------------------------------------------------------------------------------------------
 
 //function to restart the game
 function handleRestartGame()
