@@ -1,0 +1,72 @@
+<!-- HTML portion of program -->
+
+<!doctype html>
+<html lang = "en">
+
+<head>
+
+    <meta charset = "UTF-8">
+    <meta name = "viewport">
+    <meta content = "width=device-width, user-scalable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0">
+    <meta http-equiv = "X-UA-Compatible">
+    <meta content = "ie=edge">
+
+    <title>Tic Tac Toe Board Game</title>
+
+    <link rel = "stylesheet" href = "tic_tac_toe_v3.css">
+
+</head>
+
+<body onkeypress = "handleKeyboard(event)">
+
+    <audio id = "myAudio">
+        <source src = "ukelele.mp3" type = "audio/mp3">
+    </audio>
+
+    <audio id = "myAudio1">
+        <source src = "ding.mp3" type = "audio/mp3">
+    </audio>
+
+    <section>
+
+        <p style = "text-align: left">
+        To choose a box, you can say the box name using: 
+        <br>Voice Recognition button, a mouse to click the box, or a keyboard
+        <br>
+        <br>Box 1 is top left: Say 1, click the box, or press 1 on the keyboard
+        <br>Box 2 is top middle: Say 2, click the box, or press 2 on the keyboard
+        <br>Box 3 is top right: Say 3, click the box, or press 3 on the keyboard
+        <br>Box 4 is middle left: Say 4, click the box, or press 4 on the keyboard
+        <br>Box 5 is center: Say 5, click the box, or press 5 on the keyboard
+        <br>Box 6 is middle right: Say 6, click the box, or press 6 on the keyboard
+        <br>Box 7 is bottom left: Say 7, click the box, or press 7 on the keyboard
+        <br>Box 8 is bottom middle: Say 8, click the box, or press 8 on the keyboard
+        <br>Box 9 is bottom right: Say 9, click the box, or press 9 on the keyboard
+        </p>
+        <h1 class = "game--title">Tic Tac Toe!</h1>
+
+        <div class = "game--container">
+            <div data-cell-index = "0" class = "cell" id = "1"></div>
+            <div data-cell-index = "1" class = "cell" id = "2"></div>
+            <div data-cell-index = "2" class = "cell" id = "3"></div>
+            <div data-cell-index = "3" class = "cell" id = "4"></div>
+            <div data-cell-index = "4" class = "cell" id = "5"></div>
+            <div data-cell-index = "5" class = "cell" id = "6"></div>
+            <div data-cell-index = "6" class = "cell" id = "7"></div>
+            <div data-cell-index = "7" class = "cell" id = "8"></div>
+            <div data-cell-index = "8" class = "cell" id = "9"></div>
+        </div>
+
+        <h2 class = "game--status"></h2>
+
+        <button id = "resetButton" class = "game--restart" onclick = "handleRestartGame()">Click to reset</button>
+        <button id = "record" onclick = "speechRecognition()">Voice Recognition</button> &nbsp; <span id = "action"></span>
+        <div id = "output" class = "hide"></div>
+
+    </section>
+
+    <script src = "tic_tac_toe_v3.js"></script>
+
+</body>
+
+</html>
