@@ -54,7 +54,7 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
     gameState[gameBoardIndex] = currentPlayer;
-     mod = modState[gameBoardIndex]);
+     mod = modState[gameBoardIndex];
     selectedCell.innerHTML = currentPlayer;
      console.log("modifiedStateL " + mod);
     console.log("Game state location: " + gameState);
