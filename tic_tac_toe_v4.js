@@ -148,7 +148,7 @@ function handleCellClick(event)
     const gameBoardIndex = parseInt(selectedCell.getAttribute('data-cell-index'));
 
     //checks if board isn't empty and not active
-    if (gameState[gameBoardIndex] !== "" || !gameActive)
+    if (gameState[gameBoardIndex] != "" || !gameActive || modifiedState[gameBoardIndex] == 1)
     {
         return;
     }
