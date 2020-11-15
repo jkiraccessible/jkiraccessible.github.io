@@ -58,6 +58,7 @@ function handleCellPlayed(selectedCell, gameBoardIndex)
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
+    console.log("modifiedState " + modifiedState[gameBoardIndex]);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -153,7 +154,7 @@ function handleCellClick(event)
         return;
     }
     if (modifiedState[gameBoardIndex] == 0){
-        console.log("modifiedSate " + modifiedState[gameBoardIndex]);
+        console.log("modifiedState " + modifiedState[gameBoardIndex]);
     handleCellPlayed(selectedCell, gameBoardIndex);
     var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
@@ -162,7 +163,7 @@ function handleCellClick(event)
     speechSynthesis.speak(msg);
     msgTxt = "";
     modifiedState[gameBoardIndex] += 1;
-    console.log("modifiedSate " + modifiedState[gameBoardIndex]);
+    console.log("modifiedState " + modifiedState[gameBoardIndex]);
     handleResultValidation();     
     }
    
