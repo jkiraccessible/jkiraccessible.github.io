@@ -160,6 +160,8 @@ function handleCellClick(event)
     }
     if (modifiedState[gameBoardIndex] == 0){
     handleCellPlayed(selectedCell, gameBoardIndex);
+     modifiedState[gameBoardIndex] = 1;
+    }
     handleResultValidation();
      var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
@@ -167,8 +169,6 @@ function handleCellClick(event)
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modifiedState[gameBoardIndex] = 1;
-    }
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
