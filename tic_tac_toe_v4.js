@@ -152,14 +152,14 @@ function handleCellClick(event)
     {
         return;
     }
-    if (modifiedState[gameBoardIndex] == 0){
+    if (modifiedState[gameBoardIndex] != '1'){
         var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modifiedState[gameBoardIndex] = 1;
+    modifiedState[gameBoardIndex] = '1';
     handleCellPlayed(selectedCell, gameBoardIndex);
     }
     handleResultValidation();     
@@ -193,7 +193,7 @@ function handleRestartGame()
     gameActive = true;
     currentPlayer = "X";
     gameState = ["", "", "", "", "", "", "", "", ""];
-     modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
     pauseAudio();
