@@ -538,10 +538,10 @@ function handleKeyboard(keyEvent)
     alert("Not a valid key try again");
   }
 
-  const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+//  const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
   //if cell has been played or game is paused, ignore
-  if (gameState[clickedCellIndex] !== "" || !gameActive)
+  if (gameState[clickedCell-1] !== "" || !gameActive)
   {
       return;
   }
