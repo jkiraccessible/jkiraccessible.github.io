@@ -13,11 +13,11 @@
 
     <title>Tic Tac Toe Board Game</title>
 
-    <link rel = "stylesheet" href = "tic_tac_toe.css">
+    <link rel = "stylesheet" href = "tic_tac_toe_v3.css">
 
 </head>
 
-<body>
+<body onkeypress="handleKeyboard(event)">
 
     <section>
 
@@ -38,13 +38,13 @@
         <h2 class = "game--status"></h2>
 
         <button id = "resetButton" class = "game--restart" onclick = "handleRestartGame()">Click to reset</button>
-          <button id = "readBoard" class = "game--readBoard" onclick = "readBoard()">Read the Board</button>
         <button id = "record" onclick = "speechRecognition()">Voice Recognition</button> &nbsp; <span id = "action"></span>
+          <button id = "readBoard" class = "game--readBoard" onclick = "readBoard()">Read the Board</button>
         <div id = "output" class = "hide"></div>
 
     </section>
 
-    <script src = "tic_tac_toe.js"></script>
+    <script src = "tic_tac_toe_v3.js"></script>
 
 </body>
 
