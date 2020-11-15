@@ -566,7 +566,6 @@ function handleKeyboard(keyEvent)
     //cell index from html
     var htmlIndex = document.getElementById("7");
     //(cell from html, game state [board location])
-    handleCellPlayed(htmlID, boardIndex);
     //check if player has won game
    if (modState[boardIndex] == false){
      handleCellPlayed(htmlID, boardIndex);
