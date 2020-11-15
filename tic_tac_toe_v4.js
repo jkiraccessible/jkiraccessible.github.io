@@ -52,11 +52,16 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 //function to handle the cell selected for the current player turn
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
+    if (gameState[gameBoardIndex] == ""){
     gameState[gameBoardIndex] = currentPlayer;
     selectedCell.innerHTML = currentPlayer;
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
+    }
+    else {
+         console.log(gameState[gameboardIndex] + "is at "+(+gameBoardIndex+1)+ ".");
+    }
 }
 
 
