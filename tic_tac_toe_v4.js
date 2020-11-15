@@ -39,7 +39,7 @@ let gameActive = true;
 let currentPlayer = "X";
 //setting the grid spots on the board to empty
 let gameState = ["", "", "", "", "", "", "", "", ""];
-let modifedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+let modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 //winning message
 const winningMessage = () => `Player ${currentPlayer} has won the game, lets play again!`;
 //draw message
@@ -54,7 +54,6 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
     if (modifiedState[gameBoardIndex] == 0){
-        modififedState[gameBoardIndex] = 1;
     gameState[gameBoardIndex] = currentPlayer;
     selectedCell.innerHTML = currentPlayer;
     console.log("Game state location: " + gameState);
