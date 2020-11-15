@@ -58,7 +58,6 @@ function handleCellPlayed(selectedCell, gameBoardIndex)
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
-   
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
