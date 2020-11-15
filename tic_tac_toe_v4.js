@@ -39,7 +39,7 @@ let gameActive = true;
 let currentPlayer = "X";
 //setting the grid spots on the board to empty
 let gameState = ["", "", "", "", "", "", "", "", ""];
-var modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+let modState = [false, false, false, false, false, false, false, false, false];
 //winning message
 const winningMessage = () => `Player ${currentPlayer} has won the game, lets play again!`;
 //draw message
@@ -54,7 +54,7 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
     gameState[gameBoardIndex] = currentPlayer;
-     mod = modifiedState[gameBoardIndex]);
+     mod = modState[gameBoardIndex]);
     selectedCell.innerHTML = currentPlayer;
      console.log("modifiedStateL " + mod);
     console.log("Game state location: " + gameState);
@@ -151,12 +151,11 @@ function handleCellClick(event)
     const gameBoardIndex = parseInt(selectedCell.getAttribute('data-cell-index'));
 
     //checks if board isn't empty and not active
-    if (gameState[gameBoardIndex] != "" || !gameActive || modifiedState[gameBoardIndex] == 1)
+    if (gameState[gameBoardIndex] != "" || !gameActive || mod[gameBoardIndex] == true)
     {
         return;
     }
-    if (modifiedState[gameBoardIndex] == 0){
-        console.log("modifiedState " + modifiedState[gameBoardIndex]);
+    if (modState[gameBoardIndex] == false){
     handleCellPlayed(selectedCell, gameBoardIndex);
     var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
@@ -164,8 +163,7 @@ function handleCellClick(event)
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modifiedState[gameBoardIndex] += 1;
-    console.log("modifiedState " + modifiedState[gameBoardIndex]);
+    modState[gameBoardIndex] = true;
     handleResultValidation();     
     }
    
@@ -199,7 +197,7 @@ function handleRestartGame()
     gameActive = true;
     currentPlayer = "X";
     gameState = ["", "", "", "", "", "", "", "", ""];
-    modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    modifiedState = [false, false, false, false, false, false, false, false, false];
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
     pauseAudio();
