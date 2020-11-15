@@ -152,6 +152,7 @@ function handleCellClick(event)
     {
         return;
     }
+    
     if (modState[gameBoardIndex] == false){
     handleCellPlayed(selectedCell, gameBoardIndex);
     var msg = new SpeechSynthesisUtterance();
