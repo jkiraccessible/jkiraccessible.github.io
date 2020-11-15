@@ -53,11 +53,14 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 //function to handle the cell selected for the current player turn
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
+    if (modState[gameBoardIndex] == false){
     gameState[gameBoardIndex] = currentPlayer;
     selectedCell.innerHTML = currentPlayer;
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
+    modState[gameBoardIndex] = true;
+    }
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -153,15 +156,15 @@ function handleCellClick(event)
         return;
     }
     
-    if (modState[gameBoardIndex] == false){
+    
     handleCellPlayed(selectedCell, gameBoardIndex);
+    if (modState[gameBoardIndex] == false){
     var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modState[gameBoardIndex] = true;
     handleResultValidation();     
     }
    
