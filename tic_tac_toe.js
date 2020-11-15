@@ -126,21 +126,7 @@ function handleCellClick(event)
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
-
-//function to restart the game
-function handleRestartGame()
-{
-    gameActive = true;
-    currentPlayer = "X";
-    gameState = ["", "", "", "", "", "", "", "", ""];
-    statusDisplay.innerHTML = currentPlayerTurn();
-    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
-}
-
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
-document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
-//-------------------------------------------------------------------------------------------------------------------------
+//function to read the state of the cells
 function readBoard(event){
   var msg = new SpeechSynthesisUtterance();
   var msgTxt = "";
@@ -160,6 +146,24 @@ function readBoard(event){
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
 }
+//-------------------------------------------------------------------------------------------------------------------------
+
+//function to restart the game
+function handleRestartGame()
+{
+    gameActive = true;
+    currentPlayer = "X";
+    gameState = ["", "", "", "", "", "", "", "", ""];
+    statusDisplay.innerHTML = currentPlayerTurn();
+    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+}
+
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
+
+//-------------------------------------------------------------------------------------------------------------------------
+
 //voice recognition for program
 function speechRecognition()
 {
@@ -196,9 +200,7 @@ function speechRecognition()
         output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
         output.classList.remove("hide");
         console.log(transcript);
-        if (transcript.toLowerCase() == 'read'){
-          readBoard();
-        }
+
         //locate box 1 on the map and place the current player symbol in it
         if (transcript.toLowerCase() == '1')
         {
@@ -355,4 +357,152 @@ function speechRecognition()
 
     //start recognition
     recognition.start();
+}
+
+//Keyboard Accessible portion
+function handleKeyboard(keyEvent)
+{
+  //saves the clicked html element in a variable for easier use
+  //might not need this? look into handle clell played
+
+  const clickedCell = keyEvent.target
+
+  //grabs the 'data-cell-index' attribute from the clicked cell to identify where the cell is in the grid
+  //will return a string value
+  var x = event.which || event.keyCode;
+
+  if (x == 49)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("1");
+    //cell index
+    var boardIndex = 0;
+    //cell index from html
+    var htmlIndex = document.getElementById("0");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 50)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("2");
+    //cell index
+    var boardIndex = 1;
+    //cell index from html
+    var htmlIndex = document.getElementById("1");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 51)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("3");
+    //cell index
+    var boardIndex = 2;
+    //cell index from html
+    var htmlIndex = document.getElementById("2");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 52)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("4");
+    //cell index
+    var boardIndex = 3;
+    //cell index from html
+    var htmlIndex = document.getElementById("3");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 53)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("5");
+    //cell index
+    var boardIndex = 4;
+    //cell index from html
+    var htmlIndex = document.getElementById("4");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 54)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("6");
+    //cell index
+    var boardIndex = 5;
+    //cell index from html
+    var htmlIndex = document.getElementById("5");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 55)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("7");
+    //cell index
+    var boardIndex = 6;
+    //cell index from html
+    var htmlIndex = document.getElementById("6");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 56)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("8");
+    //cell index
+    var boardIndex = 7;
+    //cell index from html
+    var htmlIndex = document.getElementById("7");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else if (x == 57)
+  {
+    //id of cell from html
+    var htmlID = document.getElementById("9");
+    //cell index
+    var boardIndex = 8;
+    //cell index from html
+    var htmlIndex = document.getElementById("8");
+    //(cell from html, game state [board location])
+    handleCellPlayed(htmlID, boardIndex);
+    //check if player has won game
+    handleResultValidation();
+  }
+  else {
+    alert("Not a valid key try again");
+  }
+
+  // const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+  //if cell has been played or game is paused, ignore
+  if (gameState[clickedCellIndex] !== "" || !gameActive)
+  {
+      return;
+  }
+
+  //continue with gameflow
+  //Might have to change clickedCell!!!!
+  handleCellPlayed(clickedCell, clickedCellIndex);
+  handleResultValidation();
+  //End of Rj's contribution
 }
