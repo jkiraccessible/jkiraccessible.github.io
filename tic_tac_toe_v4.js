@@ -52,12 +52,19 @@ const currentPlayerTurn = () => `It is player ${currentPlayer}'s turn`;
 //function to handle the cell selected for the current player turn
 function handleCellPlayed(selectedCell, gameBoardIndex)
 {
-    playAudio1()
-;    gameState[gameBoardIndex] = currentPlayer;
+    gameState[gameBoardIndex] = currentPlayer;
     selectedCell.innerHTML = currentPlayer;
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
+    var msg = new SpeechSynthesisUtterance();
+    var msgTxt = (currentPlayer + " selected cell " + selectedCell + ".");
+    msg.text = msgTxt;
+    speechSynthesis.speak(msg);
+    msgTxt = "";
+    msgTxt = ("It is now " + currentPlayer+"'s turn.");
+    msg.text = msgTxt;
+    speechSynthesis.speak(msg);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
