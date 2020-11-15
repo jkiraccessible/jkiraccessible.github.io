@@ -39,7 +39,7 @@ let gameActive = true;
 let currentPlayer = "X";
 //setting the grid spots on the board to empty
 let gameState = ["", "", "", "", "", "", "", "", ""];
-let modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+var modifiedState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 //winning message
 const winningMessage = () => `Player ${currentPlayer} has won the game, lets play again!`;
 //draw message
