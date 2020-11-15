@@ -165,7 +165,27 @@ function handleCellClick(event)
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
+//function to read the state of the cells
+function readBoard(event){
+  var msg = new SpeechSynthesisUtterance();
+  var msgTxt = "";
+    for (var i = 0; i< 9; i++){
 
+      if (gameState[i] == "")
+      {
+        var x = (i+1).toString();
+        msgTxt += "   ";
+        msgTxt += x;
+      }
+      else {
+        msgTxt += "   ";
+        msgTxt += gameState[i];
+      }
+    }
+    msg.text = msgTxt;
+    speechSynthesis.speak(msg);
+}
+//-------------------------------------------------------------------------------------------------------------------------
 //function to restart the game
 function handleRestartGame()
 {
@@ -179,6 +199,7 @@ function handleRestartGame()
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
 
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -219,7 +240,10 @@ function speechRecognition()
         output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
         output.classList.remove("hide");
         console.log(transcript);
-
+          
+       if (transcript.toLowerCase() == 'read'){	 //if a player asks for the board's state to be read out loud
+          readBoard();	
+        }
         //locate box 1 on the map and place the current player symbol in it
         if (transcript.toLowerCase() == '1')
         {
