@@ -159,7 +159,7 @@ function handleCellClick(event)
     {
         return;
     }
-
+    if (modifiedState[gameBoardIndex] == 0){
     handleCellPlayed(selectedCell, gameBoardIndex);
     handleResultValidation();
      var msg = new SpeechSynthesisUtterance();
@@ -167,7 +167,8 @@ function handleCellClick(event)
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
-    msgTxt = "";   
+    msgTxt = "";
+    }
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
