@@ -152,15 +152,15 @@ function handleCellClick(event)
     {
         return;
     }
-    if (modifiedState[gameBoardIndex] != '1'){
-        var msg = new SpeechSynthesisUtterance();
+    if (modifiedState[gameBoardIndex] == 0){
+    handleCellPlayed(selectedCell, gameBoardIndex);
+    var msg = new SpeechSynthesisUtterance();
     var msgTxt = "";
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modifiedState[gameBoardIndex] = '1';
-    handleCellPlayed(selectedCell, gameBoardIndex);
+    modifiedState[gameBoardIndex] += 1;
     }
     handleResultValidation();     
 }
