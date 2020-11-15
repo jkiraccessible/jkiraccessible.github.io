@@ -198,7 +198,7 @@ function handleRestartGame()
     gameActive = true;
     currentPlayer = "X";
     gameState = ["", "", "", "", "", "", "", "", ""];
-    modifiedState = [false, false, false, false, false, false, false, false, false];
+   modState = [false, false, false, false, false, false, false, false, false];
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
     pauseAudio();
