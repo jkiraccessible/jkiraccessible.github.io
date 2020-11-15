@@ -55,8 +55,6 @@ function handleCellPlayed(selectedCell, gameBoardIndex)
 {
     gameState[gameBoardIndex] = currentPlayer;
     selectedCell.innerHTML = currentPlayer;
-     mod = modState[gameBoardIndex];
-     console.log("modifiedStateL " + mod);
     console.log("Game state location: " + gameState);
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
