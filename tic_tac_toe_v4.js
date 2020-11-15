@@ -58,14 +58,12 @@ function handleCellPlayed(selectedCell, gameBoardIndex)
     console.log("Current player turn: " + currentPlayer);
     console.log("Index in array: " + gameBoardIndex);
     var msg = new SpeechSynthesisUtterance();
-    var msgTxt = (currentPlayer + " selected cell " + selectedCell + ".");
+    var msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1) + ".");
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
-    msgTxt = "";
-    msgTxt = ("It is now " + currentPlayer+"'s turn.");
-    msg.text = msgTxt;
-    speechSynthesis.speak(msg);
+    msgTxt = "";   
 }
+
 
 //-------------------------------------------------------------------------------------------------------------------------
 
