@@ -167,7 +167,7 @@ function handleCellClick(event)
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
     msgTxt = "";
-    modififedState[gameBoardIndex] = 1;
+    modifiedState[gameBoardIndex] = 1;
     }
 }
 
