@@ -316,9 +316,17 @@ function speechRecognition()
             //test voice recognition
             console.log("Got command: " + transcript);
             //(cell from html, game state [board location])
-            handleCellPlayed(htmlID, boardIndex);
-            //check if player has won game
-            handleResultValidation();
+            if (modState[boardIndex] == false){	
+            handleCellPlayed(htmlID, boardIndex);	          
+                var msg = new SpeechSynthesisUtterance();
+                var msgTxt = "";	
+                msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
+                msg.text = msgTxt;	
+                speechSynthesis.speak(msg);	
+                msgTxt = "";
+ //check if player has won game	
+            handleResultValidation();	            
+        }
         }
 
         //locate box 2 on the map and place the current player symbol in it
@@ -333,9 +341,17 @@ function speechRecognition()
             //test voice recognition
             console.log("Got command: " + transcript);
             //(cell from html, game state [board location])
-            handleCellPlayed(htmlID, boardIndex);
-            //check if player has won game
-            handleResultValidation();
+            if (modState[boardIndex] == false){	
+            handleCellPlayed(htmlID, boardIndex);	          
+                var msg = new SpeechSynthesisUtterance();
+                var msgTxt = "";	
+                msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
+                msg.text = msgTxt;	
+                speechSynthesis.speak(msg);	
+                msgTxt = "";
+ //check if player has won game	
+            handleResultValidation();	            
+        }
         }
 
         //locate box 3 on the map and place the current player symbol in it
@@ -385,7 +401,8 @@ function speechRecognition()
                 speechSynthesis.speak(msg);	
                 msgTxt = "";
  //check if player has won game	
-            handleResultValidation();	            
+            handleResultValidation();
+	}
         }
 
         //locate box 5 on the map and place the current player symbol in it
