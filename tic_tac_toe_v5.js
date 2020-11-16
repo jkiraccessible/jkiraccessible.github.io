@@ -161,7 +161,7 @@ function handleCellClick(event)
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));
     msg.text = msgTxt;
     speechSynthesis.speak(msg);
-    msgTxt = "";   
+    msgTxt = "";
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -252,7 +252,7 @@ function decreaseFontSize()
     } else if (counter == 8) {
         document.getElementById('webText').style.fontSize='65px'
     }
-    
+
 }
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -293,9 +293,9 @@ function speechRecognition()
         output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
         output.classList.remove("hide");
         console.log(transcript);
-          
+
        if (transcript.toLowerCase() == 'read'){	 //if a player asks for the board's state to be read out loud
-          readBoard();	
+          readBoard();
         }
         //locate box 1 on the map and place the current player symbol in it
         if (transcript.toLowerCase() == '1')
@@ -600,5 +600,16 @@ function handleKeyboard(keyEvent)
   //Might have to change clickedCell!!!!
   handleCellPlayed(clickedCell, clickedCellIndex);
   handleResultValidation();
-  //End of Rj's contribution
+}
+
+function changeCSS(cssFile, cssLinkIndex) {
+
+    var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", cssFile);
+
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 }
