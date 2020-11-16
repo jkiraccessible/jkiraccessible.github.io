@@ -13,7 +13,7 @@
 
     <title>Tic Tac Toe Board Game</title>
 
-    <link rel = "stylesheet" href = "tic_tac_toe_v4.css">
+    <link rel = "stylesheet" href = "tic_tac_toe_v6.css">
 
 </head>
 
@@ -29,21 +29,21 @@
 
     <section id = "webText">
 
-        <p style = "text-align: left">
-        To choose a box, you can say the box name using: 
-        <br>Voice Recognition button, a mouse to click the box, or a keyboard
-        <br>
-        <br>Box 1 is top left: Say 1, click the box, or press 1 on the keyboard
-        <br>Box 2 is top middle: Say 2, click the box, or press 2 on the keyboard
-        <br>Box 3 is top right: Say 3, click the box, or press 3 on the keyboard
-        <br>Box 4 is middle left: Say 4, click the box, or press 4 on the keyboard
-        <br>Box 5 is center: Say 5, click the box, or press 5 on the keyboard
-        <br>Box 6 is middle right: Say 6, click the box, or press 6 on the keyboard
-        <br>Box 7 is bottom left: Say 7, click the box, or press 7 on the keyboard
-        <br>Box 8 is bottom middle: Say 8, click the box, or press 8 on the keyboard
-        <br>Box 9 is bottom right: Say 9, click the box, or press 9 on the keyboard
-        </p>
+
+
         <h1 class = "game--title">Tic Tac Toe!</h1>
+
+
+
+        <div class = "main">
+
+          <div class = "colorscheme">
+            <h3>Change the Color Scheme</h3>
+            <button onclick="changeCSS('tic_tac_toe_v6.css');">Default</button>
+            <button onclick="changeCSS('darkmode.css');">High Contrast</button>
+            <button onclick="changeCSS('yellowonblack.css');">Yellow on Black</button>
+            <button onclick="changeCSS('blackonyellow.css');">Black on Yellow</button>
+          </div>
 
         <div class = "game--container">
             <div data-cell-index = "0" class = "cell" id = "1"></div>
@@ -56,6 +56,23 @@
             <div data-cell-index = "7" class = "cell" id = "8"></div>
             <div data-cell-index = "8" class = "cell" id = "9"></div>
         </div>
+          <div class = "instructions">
+            <p>
+            To choose a box, you can say the box name using:
+            <br>Voice Recognition button, a mouse to click the box, or a keyboard
+            <br>
+            <br>Box 1 is top left: Say 1, click the box, or press 1 on the keyboard
+            <br>Box 2 is top middle: Say 2, click the box, or press 2 on the keyboard
+            <br>Box 3 is top right: Say 3, click the box, or press 3 on the keyboard
+            <br>Box 4 is middle left: Say 4, click the box, or press 4 on the keyboard
+            <br>Box 5 is center: Say 5, click the box, or press 5 on the keyboard
+            <br>Box 6 is middle right: Say 6, click the box, or press 6 on the keyboard
+            <br>Box 7 is bottom left: Say 7, click the box, or press 7 on the keyboard
+            <br>Box 8 is bottom middle: Say 8, click the box, or press 8 on the keyboard
+            <br>Box 9 is bottom right: Say 9, click the box, or press 9 on the keyboard
+            </p>
+          </div>
+      </div>
 
         <h2 class = "game--status"></h2>
 
@@ -68,7 +85,7 @@
 
     </section>
 
-    <script src = "tic_tac_toe_v4.js"></script>
+    <script src = "tic_tac_toe_v6.js"></script>
 
 </body>
 
