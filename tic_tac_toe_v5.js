@@ -252,7 +252,7 @@ function decreaseFontSize()
     } else if (counter == 8) {
         document.getElementById('webText').style.fontSize='65px'
     }
-    
+
 }
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -293,7 +293,7 @@ function speechRecognition()
         output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
         output.classList.remove("hide");
         console.log(transcript);
-          
+
        if (transcript.toLowerCase() == 'read'){	 //if a player asks for the board's state to be read out loud
           readBoard();	
         }
@@ -601,4 +601,4 @@ function handleKeyboard(keyEvent)
   handleCellPlayed(clickedCell, clickedCellIndex);
   handleResultValidation();
   //End of Rj's contribution
-}
+} 
