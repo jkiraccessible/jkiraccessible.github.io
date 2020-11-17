@@ -197,7 +197,7 @@ function handleRestartGame()
 {
     gameActive = true;
     currentPlayer = "X";
-    gameState = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    gameState = ["", "", "", "", "", "", "", "", ""];
     modState = [false, false, false, false, false, false, false, false, false];
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
