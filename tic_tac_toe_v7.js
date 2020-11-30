@@ -123,8 +123,12 @@ function handleResultValidation()
     //instance if game is won
     if (roundWon)
     {
+	var endMsg = new SpeechSynthesisUtterance();
+	endMsg.text = winningMessage();
         playAudio();
         statusDisplay.innerHTML = winningMessage();
+	speechSynthesis.speak(endMsg);
+
         gameActive = false;
         return;
     }
@@ -133,7 +137,10 @@ function handleResultValidation()
     let roundDraw = !gameState.includes("");
     if (roundDraw)
     {
-        statusDisplay.innerHTML = drawMessage();
+        var endMsg = new SpeechSynthesisUtterance();
+	endMsg.text = winningMessage();
+	statusDisplay.innerHTML = drawMessage();
+	speechSynthesis.speak(endMsg);
         gameActive = false;
         return;
     }
