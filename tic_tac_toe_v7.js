@@ -180,11 +180,11 @@ function readBoard(event){
       if (gameState[i] == "")
       {
         var x = (i+1).toString();
-        msgTxt += "   ";
+        msgTxt += " . ";
         msgTxt += x;
       }
       else {
-        msgTxt += "   ";
+        msgTxt += " . ";
         msgTxt += gameState[i];
       }
     }
