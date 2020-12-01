@@ -36,6 +36,7 @@ function pauseAudio1()
 const statusDisplay = document.querySelector('.game--status');
 //game status
 let gameActive = true;
+let speechRate = 1.00; //sets the rate of the speech synthesis. 
 //starting player X
 let currentPlayer = "X";
 //setting the grid spots on the board to empty
@@ -170,11 +171,25 @@ function handleCellClick(event)
      var msg = new SpeechSynthesisUtterance();	    
     var msgTxt = "";
     msgTxt = (currentPlayer + " selected cell " + (gameBoardIndex+1));	    
-    msg.text = msgTxt;	   
+    msg.text = msgTxt;	  
+    msg.rate =  speechRate; 
     speechSynthesis.speak(msg);	    
     msgTxt = "";
 handleResultValidation();
     }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+//function to speed the rate the board is read
+function readBoardFaster(event){
+if (speechRate < 10){
+ speechRate  +=.25;
+}
+}
+function readBoardSlower(event){
+if (speechRate> 0){
+ speechRate  -=.25;
+}
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -214,6 +229,9 @@ function handleRestartGame()
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
+document.querySelector('.game--readBoardFaster').addEventListener('onclick', readBoardFaster);
+document.querySelector('.game--readBoardSlower').addEventListener('onclick', readBoardSlower);
+
 
 //-------------------------------------------------------------------------------------------------------------------------
 function increaseFontSize()
@@ -327,9 +345,9 @@ function speechRecognition()
             handleCellPlayed(htmlID, boardIndex);	          
                 var msg = new SpeechSynthesisUtterance();
                 var msgTxt = "";	
-                msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -353,8 +371,9 @@ function speechRecognition()
                 var msg = new SpeechSynthesisUtterance();
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -378,8 +397,9 @@ function speechRecognition()
                 var msg = new SpeechSynthesisUtterance();
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -404,8 +424,9 @@ function speechRecognition()
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();
@@ -425,13 +446,14 @@ function speechRecognition()
             console.log("Got command: " + transcript);
             //(cell from html, game state [board location])
             if (modState[boardIndex] == false){	
-            handleCellPlayed(htmlID, boardIndex);	          
-                var msg = new SpeechSynthesisUtterance();
-	           
+            handleCellPlayed(htmlID, boardIndex);
+            	//generate message 	          
+                var msg = new SpeechSynthesisUtterance();	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -451,13 +473,14 @@ function speechRecognition()
             console.log("Got command: " + transcript);
             //(cell from html, game state [board location])
            if (modState[boardIndex] == false){	
-            handleCellPlayed(htmlID, boardIndex);	          
-                var msg = new SpeechSynthesisUtterance();
-	           
+            handleCellPlayed(htmlID, boardIndex);	
+            	//generate message           
+                var msg = new SpeechSynthesisUtterance();          
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -482,8 +505,9 @@ function speechRecognition()
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -508,8 +532,9 @@ function speechRecognition()
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -534,8 +559,9 @@ function speechRecognition()
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -574,8 +600,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -596,8 +623,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -618,8 +646,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -640,8 +669,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -662,8 +692,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -684,8 +715,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -706,8 +738,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -728,8 +761,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
@@ -750,8 +784,9 @@ function handleKeyboard(keyEvent)
 	           
                 var msgTxt = "";	
                 msgTxt = (currentPlayer + " selected cell " + (boardIndex+1));	
-                msg.text = msgTxt;	
-                speechSynthesis.speak(msg);	
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
                 msgTxt = "";
  //check if player has won game	
             handleResultValidation();	            
