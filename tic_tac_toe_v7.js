@@ -182,21 +182,32 @@ handleResultValidation();
 //-------------------------------------------------------------------------------------------------------------------------
 //function to speed the rate the board is read
 function readBoardFaster(event){
-if (speechRate < 10){
- speechRate  +=.25;
-}
+     var msgTxt = "Read Faster"; 
+    var msg = new SpeechSynthesisUtterance();   
+    msg.text = msgTxt;    
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg); 
+    if (speechRate < 10){
+        speechRate  +=.25;
+    }
 }
 function readBoardSlower(event){
-if (speechRate> 0){
- speechRate  -=.25;
-}
+    var msgTxt = "Read Slower"; 
+    var msg = new SpeechSynthesisUtterance();   
+    msg.text = msgTxt;    
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg); 
+    if (speechRate> 0){
+        speechRate  -=.25;
+    }
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
 //function to read the state of the cells
 function readBoard(event){
   var msg = new SpeechSynthesisUtterance();
-  var msgTxt = "";
+  var msgTxt = "Here's whole board.";
+  speechSynthesis.speak(msg);
     for (var i = 0; i< 9; i++){
 
       if (gameState[i] == "")
@@ -211,6 +222,62 @@ function readBoard(event){
       }
     }
     msg.text = msgTxt;
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg);
+}
+
+function xLocation(event){
+  var msg = new SpeechSynthesisUtterance();
+    var msgTxt = "X is at:";
+  speechSynthesis.speak(msg);
+    for (var i = 0; i< 9; i++){
+
+      if (gameState[i] == "X")
+      {
+        var x = (i+1).toString();
+        msgTxt += " . ";
+        msgTxt += x;
+      }
+
+    }
+    msg.text = msgTxt;
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg);
+}
+
+function oLocation(event){
+  var msg = new SpeechSynthesisUtterance();
+    var msgTxt = "O is at:";
+  speechSynthesis.speak(msg);
+    for (var i = 0; i< 9; i++){
+
+      if (gameState[i] == "O")
+      {
+        var x = (i+1).toString();
+        msgTxt += " . ";
+        msgTxt += x;
+      }
+
+    }
+    msg.text = msgTxt;
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg);
+}
+function emptyLocation(event){
+  var msg = new SpeechSynthesisUtterance();
+    var msgTxt = "There are empty cells at:";
+  speechSynthesis.speak(msg);
+    for (var i = 0; i< 9; i++){
+
+      if (gameState[i] == "")
+      {
+        var x = (i+1).toString();
+        msgTxt += " . ";
+        msgTxt += x;
+      }
+    }
+    msg.text = msgTxt;
+    msg.rate =  speechRate; 
     speechSynthesis.speak(msg);
 }
 //-------------------------------------------------------------------------------------------------------------------------
@@ -231,8 +298,9 @@ document.querySelector('.game--restart').addEventListener('click', handleRestart
 document.querySelector('.game--readBoard').addEventListener('onclick', readBoard);
 document.querySelector('.game--readBoardFaster').addEventListener('onclick', readBoardFaster);
 document.querySelector('.game--readBoardSlower').addEventListener('onclick', readBoardSlower);
-
-
+document.querySelector('.game--xLocation').addEventListener('onclick', xLocation);
+document.querySelector('.game--oLocation').addEventListener('onclick', oLocation);
+document.querySelector('.game--emptyLocation').addEventListener('onclick', emptyLocation);
 //-------------------------------------------------------------------------------------------------------------------------
 function increaseFontSize()
 {
