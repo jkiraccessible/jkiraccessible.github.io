@@ -39,10 +39,22 @@
 
           <div class = "colorscheme">
             <h3>Change the Color Scheme</h3>
-            <button onclick="changeCSS('tic_tac_toe_v6.css');">Default</button>
+            <button onclick="changeCSS('tic_tac_toe_v7.css');">Default</button>
             <button onclick="changeCSS('darkmode.css');">High Contrast</button>
             <button onclick="changeCSS('yellowonblack.css');">Yellow on Black</button>
             <button onclick="changeCSS('blackonyellow.css');">Black on Yellow</button>
+            <h3>Read the board</h3>
+            <div class = "column">
+             <button id = "readBoard" class = "game--readBoard" onclick = "readBoard()">Read the Board</button>
+             <button id = "readBoardFaster" class = "game--readBoardFaster" onclick = "readBoardFaster()">Read Faster</button>
+             <button id = "readBoardSlower" class = "game--readBoardSlower" onclick = "readBoardSlower()">Read Slower</button>
+           </div>
+           <div class = "column">
+             <button id = "X Locations" class = "game--xLocation" onclick = "readBoard()">X Location </button>
+             <button id = "O Locations" class = "game--oLocation" onclick = "readBoardFaster()">O Location</button>
+             <button id = "Empty Locations" class = "game--emptyLocation" onclick = "readBoardSlower()">Empty Location</button>
+             <div id = "output" class = "hide"></div>
+           </div>
           </div>
 
         <div class = "game--container">
@@ -59,36 +71,34 @@
           <div class = "instructions">
             <p>
             To choose a box, you can say the box name using:
-            <br>Voice Recognition button, a mouse to click the box, or a keyboard
+            <ul>
+              <li>the Voice Recognition
+              button</li>
+              <li>a mouse to click the box</li>
+              <li>the keyboard</li>
+            </ul>
+            <br>To use voice control or the keyboard, state or press the number corresponding to the box as shown in the key below
             <br>
-            <br>Box 1 is top left: Say 1, click the box, or press 1 on the keyboard
-            <br>Box 2 is top middle: Say 2, click the box, or press 2 on the keyboard
-            <br>Box 3 is top right: Say 3, click the box, or press 3 on the keyboard
-            <br>Box 4 is middle left: Say 4, click the box, or press 4 on the keyboard
-            <br>Box 5 is center: Say 5, click the box, or press 5 on the keyboard
-            <br>Box 6 is middle right: Say 6, click the box, or press 6 on the keyboard
-            <br>Box 7 is bottom left: Say 7, click the box, or press 7 on the keyboard
-            <br>Box 8 is bottom middle: Say 8, click the box, or press 8 on the keyboard
-            <br>Box 9 is bottom right: Say 9, click the box, or press 9 on the keyboard
+            <br>[1] [2] [3]
+            <br>[4] [5] [6]
+            <br>[7] [8] [9]
+            <br>
+            <br>Example: Box 1 is top left, Say 1, click the box, or press 1 on the keyboard
             </p>
+            <button id = "increaseFont" onclick = "increaseFontSize()">Increase Font Size</button>
+            <button id = "decreaseFont" onclick = "decreaseFontSize()">Decrease Font Size</button>
           </div>
       </div>
-
+      <div class = "bottom">
+          
         <h2 class = "game--status"></h2>
 
-        <button id = "increaseFont" onclick = "increaseFontSize()">Increase Font Size</button>
-        <button id = "decreaseFont" onclick = "decreaseFontSize()">Decrease Font Size</button>
         <button id = "resetButton" class = "game--restart" onclick = "handleRestartGame()">Click to reset</button>
         <button id = "record" onclick = "speechRecognition()">Voice Recognition</button> &nbsp; <span id = "action"></span>
-         <button id = "readBoard" class = "game--readBoard" onclick = "readBoard()">Read the Board</button>
-         <button id = "readBoardFaster" class = "game--readBoardFaster" onclick = "readBoardFaster()">Read Faster</button>
-         <button id = "readBoardSlower" class = "game--readBoardSlower" onclick = "readBoardSlower()">Read Slower</button>
-         <button id = "X Locations" class = "game--xLocation" onclick = "readBoard()">X Location </button>
-         <button id = "O Locations" class = "game--oLocation" onclick = "readBoardFaster()">O Location</button>
-         <button id = "Empty Locations" class = "game--emptyLocation" onclick = "readBoardSlower()">Empty Location</button>
-        <div id = "output" class = "hide"></div>
 
+      </div>
     </section>
+    
     <!-- read v7-->
     <script src = "tic_tac_toe_v7.js"></script>
 
