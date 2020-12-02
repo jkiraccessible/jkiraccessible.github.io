@@ -873,19 +873,24 @@ function handleKeyboard(keyEvent)
   }
 
   //continue with gameflow
-  //Might have to change clickedCell!!!!
   handleCellPlayed(clickedCell, clickedCellIndex);
   handleResultValidation();
 }
 
+//change css files
 function changeCSS(cssFile, cssLinkIndex) {
 
+    //saves the current css file as a variable
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
+    //creates new variable with the css file that is going to be used
     var newlink = document.createElement("link");
+	
+    //sets new css file as main css file used
     newlink.setAttribute("rel", "stylesheet");
     newlink.setAttribute("type", "text/css");
     newlink.setAttribute("href", cssFile);
-
+    
+    //replaces old link with new link
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 }
