@@ -79,4 +79,5 @@ msg.text = “Hello World!”.  // Assign string to the message
 speechSynthesis.speak(msg);
 
 
-
+### Known Limitations:
+This project works best on desktop chrome. The Speech Synthesis API does not work on Internet explorer.  The Speech Recognition API only reliably works on chrome, although it may work on windows edge. 
