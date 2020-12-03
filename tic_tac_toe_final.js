@@ -219,7 +219,7 @@ function readBoardSlower(event)
 function readBoard(event)
 {
     var msg = new SpeechSynthesisUtterance();
-    var msgTxt = "Here's whole board.";
+    var msgTxt = "Here is the whole board.";
     speechSynthesis.speak(msg);
     for (var i = 0; i < 9; i++)
     {
@@ -719,6 +719,72 @@ function speechRecognition()
         else if (transcript.toLowerCase() == 'read')
         {  
             readBoard();
+        }
+
+        //reads the x location on the board
+        else if (transcript.toLowerCase() == 'x location')
+        {
+            xLocation();
+        }
+
+        //reads the o location on the board
+        else if (transcript.toLowerCase() == 'o location')
+        {
+            oLocation();
+        }
+
+        //reads the empty location on the board
+        else if (transcript.toLowerCase() == 'empty location')
+        {
+            emptyLocation();
+        }
+
+        //increase the font size
+        else if (transcript.toLowerCase() == 'increase font size')
+        {
+            increaseFontSize();
+        }
+
+        //decrease the font size
+        else if (transcript.toLowerCase() == 'decrease font size')
+        {
+            decreaseFontSize();
+        }
+
+        //default color background
+        else if (transcript.toLowerCase() == 'default')
+        {
+            changeCSS('tic_tac_toe_v7.css')
+        }
+
+        //change background color to black on yellow
+        else if (transcript.toLowerCase() == 'black on yellow')
+        {
+            changeCSS('blackonyellow.css')
+        }
+
+        //change background color to yellow on black
+        else if (transcript.toLowerCase() == 'yellow on black')
+        {
+            changeCSS('yellowonblack.css')
+        }
+
+        //change background color to dark mode
+        else if (transcript.toLowerCase() == 'high contrast')
+        {
+            changeCSS('darkmode.css')
+        }
+
+        //read state of the board faster
+        else if (transcript.toLowerCase() == 'read faster')
+        {
+            readBoardFaster();
+        }
+
+        //read state of the board slower
+        else if (transcript.toLowerCase() == 'read slower')
+        {
+            readBoardSlower();
         }
     };
 
