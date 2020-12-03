@@ -18,7 +18,7 @@ See the game for other voice commands that you can use
 
 PLEASE don't destory the buttons on the game, tap them once and it will work
 
-    Ex: Hitting X Location repeatidly will call that function many times.... so hit it once and it will work :)
+    Ex: Hitting X Location repeatedly will call that function many times.... so hit it once and it will work :)
 
 PLEASE be patient with the voice recognition, it works very well but sometimes won't capture every word so pronouce words loud and clear!!
 
