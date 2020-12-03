@@ -50,9 +50,9 @@
              <button id = "readBoardSlower" class = "game--readBoardSlower" onclick = "readBoardSlower()">Read Slower</button>
            </div>
            <div class = "column">
-             <button id = "X Locations" class = "game--xLocation" onclick = "readBoard()">X Location </button>
-             <button id = "O Locations" class = "game--oLocation" onclick = "readBoardFaster()">O Location</button>
-             <button id = "Empty Locations" class = "game--emptyLocation" onclick = "readBoardSlower()">Empty Location</button>
+             <button id = "X Locations" class = "game--xLocation" onclick = "xLocation()">X Location </button>
+             <button id = "O Locations" class = "game--oLocation" onclick = "oLocation()">O Location</button>
+             <button id = "Empty Locations" class = "game--emptyLocation" onclick = "emptyLocation()">Empty Location</button>
              <div id = "output" class = "hide"></div>
            </div>
           </div>
@@ -76,6 +76,12 @@
               button</li>
               <li>a mouse to click the box</li>
               <li>the keyboard</li>
+            </ul>
+            Voice commands you can use:
+            <ul>
+              <li>read: reads the state of the board</li>
+              <li>reset: resets the state of the board</li>
+              <li>say what is on the button</li>
             </ul>
             <br>To use voice control or the keyboard, state or press the number corresponding to the box as shown in the key below
             <br>
