@@ -779,7 +779,7 @@ function speechRecognition()
                 msg.text = msgTxt;    
                 msg.rate =  speechRate; 
                 speechSynthesis.speak(msg);
-            changeCSS('tic_tac_toe_v7.css');
+            changeCSS('tic_tac_toe_final.css');
            
             }
         //change background color to black on yellow
