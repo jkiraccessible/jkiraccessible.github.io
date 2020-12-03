@@ -308,6 +308,10 @@ function emptyLocation(event)
 //function to restart the game
 function handleRestartGame()
 {
+    var msg1 = new SpeechSynthesisUtterance();   
+    msg1.text = "resetting board";  
+    msg1.rate =  speechRate;
+    speechSynthesis.speak(msg1);
     gameActive = true;
     currentPlayer = "X";
     gameState = ["", "", "", "", "", "", "", "", ""];
@@ -315,6 +319,8 @@ function handleRestartGame()
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
     pauseAudio();
+ 
+    msg1.text = ""; 
 }
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
@@ -370,6 +376,11 @@ function increaseFontSize()
     {
         document.getElementById('webText').style.fontSize='65px'
     }
+    var msgTxt = "increasing font size"; 
+var msg = new SpeechSynthesisUtterance();   
+msg.text = msgTxt;    
+msg.rate =  speechRate; 
+speechSynthesis.speak(msg); 
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -416,7 +427,12 @@ function decreaseFontSize()
     {
         document.getElementById('webText').style.fontSize='65px'
     }
-
+    //alerts the user what they selected. 
+    var msgTxt = "decreasing font size"; 
+    var msg = new SpeechSynthesisUtterance();   
+    msg.text = msgTxt;    
+    msg.rate =  speechRate; 
+    speechSynthesis.speak(msg); 
 }
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -712,6 +728,7 @@ function speechRecognition()
         //resets the state of the board
         else if (transcript.toLowerCase() == 'reset')
         {
+
             handleRestartGame();
         }
 
@@ -742,36 +759,60 @@ function speechRecognition()
         //increase the font size
         else if (transcript.toLowerCase() == 'increase font size')
         {
+
             increaseFontSize();
+
         }
 
         //decrease the font size
         else if (transcript.toLowerCase() == 'decrease font size')
         {
+
             decreaseFontSize();
         }
 
         //default color background
         else if (transcript.toLowerCase() == 'default')
         {
-            changeCSS('tic_tac_toe_v7.css')
-        }
-
+                var msgTxt = "switching to blue and black"; 
+                var msg = new SpeechSynthesisUtterance();   
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg);
+            changeCSS('tic_tac_toe_v7.css');
+           
+            }
         //change background color to black on yellow
         else if (transcript.toLowerCase() == 'black on yellow')
         {
-            changeCSS('blackonyellow.css')
+             var msgTxt = "black on yellow"; 
+                var msg = new SpeechSynthesisUtterance();   
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
+            changeCSS('blackonyellow.css');
+
         }
 
         //change background color to yellow on black
         else if (transcript.toLowerCase() == 'yellow on black')
         {
-            changeCSS('yellowonblack.css')
+            var msgTxt = "switching to yellow on black"; 
+                var msg = new SpeechSynthesisUtterance();   
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
+            changeCSS('yellowonblack.css');
         }
 
         //change background color to dark mode
         else if (transcript.toLowerCase() == 'high contrast')
         {
+            var msgTxt = "switch to high contrast"; 
+                var msg = new SpeechSynthesisUtterance();   
+                msg.text = msgTxt;    
+                msg.rate =  speechRate; 
+                speechSynthesis.speak(msg); 
             changeCSS('darkmode.css')
         }
 
