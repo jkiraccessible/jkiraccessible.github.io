@@ -238,8 +238,6 @@ function xLocation(event){
         msgTxt += " . ";
         msgTxt += x;
       }
-
-    }
     msg.text = msgTxt;
     msg.rate =  speechRate; 
     speechSynthesis.speak(msg);
@@ -257,8 +255,6 @@ function oLocation(event){
         msgTxt += " . ";
         msgTxt += x;
       }
-
-    }
     msg.text = msgTxt;
     msg.rate =  speechRate; 
     speechSynthesis.speak(msg);
