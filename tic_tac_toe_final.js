@@ -142,7 +142,7 @@ function handleResultValidation()
     if (roundDraw)
     {
         var endMsg = new SpeechSynthesisUtterance();
-        endMsg.text = winningMessage();
+        endMsg.text = drawMessage();
         statusDisplay.innerHTML = drawMessage();
         speechSynthesis.speak(endMsg);
         gameActive = false;
