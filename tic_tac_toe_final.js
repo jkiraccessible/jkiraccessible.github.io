@@ -733,7 +733,7 @@ function speechRecognition()
         }
 
         //reads the state of the board
-        else if (transcript.toLowerCase() == 'read')
+        else if (transcript.toLowerCase() == 'read board')
         {  
             readBoard();
         }
