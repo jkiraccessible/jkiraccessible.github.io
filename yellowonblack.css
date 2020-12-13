@@ -20,6 +20,7 @@ button
     cursor:pointer;
     border-radius: 5px;
     position: relative;
+    width: auto;
 }
 
 p
@@ -74,7 +75,7 @@ section
     font-size: 60px;
 }
 
-.colorscheme 
+.colorscheme
 {
     width: 300px;
     float: left;
@@ -82,7 +83,7 @@ section
 
 }
 
-.main 
+.main
 {
     width: 1100px;
     margin-left: auto;
@@ -90,7 +91,7 @@ section
     overflow: hidden;
 }
 
-.instructions 
+.instructions
 {
     text-align: left;
     margin-left: 25px;
@@ -99,19 +100,19 @@ section
     padding-left: 20px;
 }
 
-.top 
+.top
 {
     width: 100%;
     padding-bottom: 10px;
     float: left;
 }
 
-.bottom 
+.bottom
 {
     width = 100%;
 }
 
-.column 
+.column
 {
     width: 130px;
     float: left;
