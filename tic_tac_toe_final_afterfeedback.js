@@ -80,7 +80,6 @@ function handlePlayerChange()
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
-
 //function to handle the results of the game
 function handleResultValidation()
 {
@@ -788,9 +787,7 @@ function speechRecognition()
         //increase the font size
         else if (transcript.toLowerCase() == 'increase font size')
         {
-
             increaseFontSize();
-
         }
 
         //decrease the font size
@@ -868,11 +865,10 @@ function handleKeyboard(keyEvent)
     //saves the clicked html element in a variable for easier use
 
     const clickedCell = keyEvent.target
-
     //grabs the 'data-cell-index' attribute from the clicked cell to identify where the cell is in the grid
     //will return a string value
     var x = event.which || event.keyCode;
-
+      console.log(x);
     if (x == 49)
     {
         //id of cell from html
@@ -1096,26 +1092,43 @@ function handleKeyboard(keyEvent)
             //check if player has won game
             handleResultValidation();
         }
-    }
-
+      }
+      else if (x == 109 || x== 45) // -minus key
+      {
+          decreaseFontSize();
+          }
+      else if (x == 107 || x== 61) // +plus key
+          {
+          increaseFontSize();
+          }
+      else if (x == 88 || x == 120) // -X key
+              {
+                xLocation();
+              }
+      else if (x == 79 || x == 111) // -O key
+              {
+                oLocation();
+              }
+      else if (x == 69 || x== 101) // -E key
+                      {
+                  emptyLocation();
+                      }
     else
     {
         alert("Not a valid key try again");
     }
-
     // const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
-
+    if (typeof(clickedCellIndex) !== "undefined"){
     //if cell has been played or game is paused, ignore
     if (gameState[clickedCellIndex] !== "" || !gameActive)
     {
         return;
     }
-
   //continue with gameflow
   handleCellPlayed(clickedCell, clickedCellIndex);
   handleResultValidation();
 }
-
+}
 //change css files
 function changeCSS(cssFile, cssLinkIndex)
 {
